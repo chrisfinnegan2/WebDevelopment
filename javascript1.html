@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <title>
+        Javascript
+    </title>
+    <meta charset="utf-8" />
+    <meta name="Author" content="Chris Finnegan" />
+    <meta name="generator" content="Brackets" />
+    <style>
+    a { text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    </style>
+</head>
+    
+<body>
+    
+    <h1> Javascript Time </h1>
+    
+    <br>
+    <p>
+    
+    <button onclick="document.body.style.backgroundColor='#f00';">
+        RED
+    </button>
+        
+    <button onclick="document.body.style.backgroundColor='#fff';">
+        WHITE
+    </button>
+        
+    <button onclick="document.body.style.backgroundColor='blue';">
+       BLUE
+    </button>
+        
+    <br>
+    <br>
+    <br>
+        
+        Number A: <input type='number' id='numA'> <br>
+        Number B: <input type='number' id='numB'> <br>
+        <span id='ans_label'>Answer:</span> <input type='text' id='answer'> <br>
+    <br>
+        
+        <button onclick='doMath("+")'>Add</button>
+        <button onclick='doMath("-")'>Subtract</button>
+        <button onclick='doMath("sqrt");'>sqrt(A)</button> <br>
+        <button onclick='doClear();'>Clear</button>
+        
+    </p>
+        
+    <h2> id='title2'>Part 2<</h2>
+    <p>
+    <button onclick='document.getElementById("title2").innerHTML = "foo";'>
+        foo
+    </button>
+  <button onclick='document.body.innerHTML="";'>Nuke!</button>
+</p>
+    
+    <script>
+        
+        function doClear()
+  {
+    console.log('clearing...')
+    document.getElementById('numA').value = 0;
+    document.getElementById('numB').value = 0;
+    document.getElementById('ans_label').innerHTML = 'Answer:';
+    document.getElementById('answer').value = '';
+  }
+        
+        function doMath(op)
+        {
+            var A = parseFloat(document.getElementByID('numA').value);
+            var B = parseFloat(document.getElementByID('numB').value);
+            var label = document.getElementById('ans_label');
+            var result;
+            
+            switch(op) {
+     case '+':
+       result = A + B;
+       label.innerHTML = 'A + B =';
+       break;
+     case '-':
+       result = A - B;
+       label.innerHTML = 'A - B =';
+       break;
+     case 'sqrt':
+       result = Math.sqrt(A);
+       label.innerHTML = 'sqrt(A) =';
+            }
+            document.getElementByID('answer').value = result;
+        }
+        
+    </script>
+</body>
